@@ -1,0 +1,13 @@
+
+le lecteur doit faire toutes ces etapes
+
+1) Brancher le lecteur
+
+2) lancher la connection avec le lecteur
+
+3)scanner (chercher si il y a une carte pesente pendant x temps)
+
+   3.a si une carte est presente:
+      3.a.1 se connecter avec la carte
+      3.a.2 recuperer son ID
+   3.b si pas de carte trouver continuer la boucle
