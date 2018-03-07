@@ -2,12 +2,23 @@
 le lecteur doit faire toutes ces etapes
 
 1) Brancher le lecteur
+    --> un macanisme de vérification de presence du lecteur doit exister et retourner
+        - True si il y a un lecteur ( on a un ou plusieurs Lecteur)
+        - False si il y a pas de lecteur 
 
-2) lancher la connection avec le lecteur
+2) Selectionner le bon lecteur
+   --> un mecanise de selection du Lecteur qui returne
+          - True si le lecteur est séléctionner
+          - False si le Lecteur ne'est pas selectinner
 
-3)scanner (chercher si il y a une carte pesente pendant x temps)
+3) lancer la connection avec le lecteur
+   --> Un mecanisme qui connecte avec le lecteur doit etre implémanter et returne
+         - True si la connection est établie
+         - False si non
 
-   3.a si une carte est presente:
-      3.a.1 se connecter avec la carte
-      3.a.2 recuperer son ID
-   3.b si pas de carte trouver continuer la boucle
+4) Scanner (chercher si il y a une carte pesente pendant x temps)
+
+   4.a si une carte est presente:
+      4.a.1 se connecter avec la carte
+      4.a.2 recuperer son ID
+   4.b si pas de carte trouver continuer la boucle
