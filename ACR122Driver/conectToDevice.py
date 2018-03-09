@@ -9,7 +9,7 @@ def getreader():
     reader = readers()
     if len(reader) == 0:
         print 'there is no reder'
-        return (_, False)
+        return (False, False)
     else:
         #To do: il faut qu'on cherche par le nom du lecteur
         print "Available readers: ", reader[0]
