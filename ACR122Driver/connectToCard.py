@@ -7,7 +7,7 @@ from conectToDevice import getreader
 getuid = [0xFF, 0xCA, 0x00, 0x00, 0x00]
 
 #trouver le lecteur
-reader = getreader()
+reader = getreader()[0]
 
 #Connecter au lecteur
 connection = reader.createConnection()
