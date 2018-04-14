@@ -11,7 +11,9 @@ def getreader():
         print 'there is no reder'
         return (False, False)
     else:
-        #To do: il faut qu'on cherche par le nom du lecteur
+        #To do: il faut qu'on cherche par le nom du lecteur et pouvoir selectionner\
+        #   un lecteur parmis d autres
+        
         print "Available readers: ", reader[0]
         return (reader[0], True)
 

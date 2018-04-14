@@ -10,8 +10,8 @@ getuid = [0xFF, 0xCA, 0x00, 0x00, 0x00]
 reader = getreader()[0]
 
 if  reader == False:
-    'Le lecteur n est pas trouver'
-    break
+    print 'Le lecteur n est pas trouver'
+
 else:
     #Connecter au lecteur
     connection = reader.createConnection()
@@ -34,4 +34,3 @@ else:
     except Exception as e:
         if str(e) == 'Time-out during card request':
             print (e)
-
