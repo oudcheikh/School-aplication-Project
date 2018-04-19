@@ -1,13 +1,16 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.5.2
 # -*- coding: utf-8 -*-
 #Auther: mouldcheikh
 
 import json
+import bcrypt
+
+
 
 class LOADCONFIG:
 
     """
-    Cette classe permet de rcuperer les informations de la base d donnes.
+    Cette classe permet de recuperer les informations de la base de donnes.
 
     """
 
@@ -58,7 +61,7 @@ class LOADCONFIG:
         return self.data['dataBase']['user']
 
 
-    def getDBpassword(self):
+    def getDbPW(self):
 
         """
         Renvoi le mot de passe de l'utilisateur
@@ -66,8 +69,36 @@ class LOADCONFIG:
         """
         return self.data['dataBase']['password']
 
+    def creatSaltPW(self):
+
+        salt = bcrypt.gensalt()
+        #To do: populate CONFIG.json by salt in pw place
+        return salt
+
+    def hashPW(self, pw, salt):
+        # Hash a password for the first time, with a randomly-generated salt
+        print (pw)
+        password = str.encode(pw)
+        hashedPW = bcrypt.hashpw(password, salt)
+        return hashedPW
+
+    def checkPW(self, pw, hashedPW):
+
+        password = str.encode(pw)
+        # Check that an unhashed password matches one that has previously been
+        # hashed
+        if bcrypt.checkpw(password, hashedPW):
+            print("It Matches!")
+        else:
+            print("It Does not Match :(")
+
 if __name__ == '__main__':
 
     infoDATABASE = LOADCONFIG()
-    print (infoDATABASE.getDBpassword())
+    print (infoDATABASE.getDbPW())
 
+    salt = infoDATABASE.creatSaltPW()
+    print (salt)
+    hashedPW = infoDATABASE.hashPW('moi', salt)
+    print(hashedPW)
+    infoDATABASE.checkPW('moi', hashedPW)
