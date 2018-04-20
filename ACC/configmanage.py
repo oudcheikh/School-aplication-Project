@@ -17,21 +17,26 @@ class LOADCONFIG:
     def __init__(self):
 
         """
-        Le constricteur recupert le donné dufichier de config
+        Le constricteur recupere les donnees du fichier de config
         au momment de l'instanciationde la Class
         """
         self.data = {}
-        # il faut ajouter le lien de fichier dansl projet
-        filecongige = '/home/ould/rimppprmp/ACC/CONFIG.json'
+        #TO DO: il faut ajouter le lien du fichier congig dans le projet
+        #ceci (filecongige) est just un test
+        filecongige = 'C:\Users\mouldcheikh\PycharmProjects\websockettesttest\config_file.json'
         with open(filecongige) as data_file:
             self.data = json.load(data_file)
         print (self.data)
+
+        #TO DO: il faut optimiser quand il faut fermer le fichier
+        #Ceci est peut etre n'est le bon endroit pour le fermer
+        data_file.close()
 
 
     def getDBname(self):
 
         """
-        Rnvoi le nomde la classe
+        Rnvoi le nom de la classe
         """
         return self.data['dataBase']['database']
 
@@ -72,7 +77,7 @@ class LOADCONFIG:
     def creatSaltPW(self):
 
         salt = bcrypt.gensalt()
-        #To do: populate CONFIG.json by salt in pw place
+        #TO DO: populate CONFIG.json by salt in pw place
         return salt
 
     def hashPW(self, pw, salt):
